@@ -1,0 +1,25 @@
+schemaVersion: 1.2
+
+endpoints:
+  - name: greeter-sample
+    service:
+      basePath: /data
+      port: 9090
+    type: REST
+    networkVisibilities: 
+      - Public
+      - Organization
+
+dependencies:
+    connectionReferences:
+    - name: con1
+      resourceRef: service:/default/parent/v1/8e755/PUBLIC
+
+configurations:
+  env:
+    - name: gitPAT
+      valueFrom:
+        configForm:
+          displayName: GitHub Personal Access Token
+          required: true
+          type: secret
