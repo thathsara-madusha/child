@@ -1,0 +1,6 @@
+schemaVersion: 1.2
+
+dependencies:
+    connectionReferences:
+    - name: con1
+      resourceRef: service:/default/parent/v1/8e755/PUBLIC
