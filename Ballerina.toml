@@ -1,0 +1,9 @@
+[package]
+org = "thathsara"
+name = "child"
+version = "0.1.0"
+distribution = "2201.13.1"
+title = "child"
+
+[build-options]
+sticky = true
