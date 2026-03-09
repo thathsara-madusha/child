@@ -12,8 +12,8 @@ endpoints:
 
 dependencies:
     connectionReferences:
-    - name: con1
-      resourceRef: service:/default/parent/v1/8e755/PUBLIC
+    - name: con12
+      resourceRef: storage:My Name 1
 
 configurations:
   env:
