@@ -12,8 +12,8 @@ endpoints:
 
 dependencies:
     connectionReferences:
-    - name: con12
-      resourceRef: storage:My Name 1
+    - name: con13
+      resourceRef: storage:MyStore
 
 configurations:
   env:
