@@ -12,7 +12,6 @@ endpoints:
 
 dependencies:
     connectionReferences:
-
     - name: Con1
       resourceRef: storage:Store1
 
