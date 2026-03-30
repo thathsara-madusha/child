@@ -11,9 +11,9 @@ endpoints:
       - Organization
 
 dependencies:
-    connectionReferences:
-      - name: Con1
-        resourceRef: storage:Store1
+  connectionReferences:
+    - name: Con1
+      resourceRef: storage:Store1
 
 configurations:
   env:
