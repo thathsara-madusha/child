@@ -14,12 +14,4 @@ dependencies:
   connectionReferences:
     - name: Con1
       resourceRef: storage:Store1
-
-configurations:
-  env:
-    - name: gitPAT
-      valueFrom:
-        configForm:
-          displayName: GitHub Personal Access Token
-          required: true
-          type: secret
+      
