@@ -1,20 +1,32 @@
 import ballerina/http;
+import ballerina/io;
+import ballerina/os;
 
-listener http:Listener httpDefaultListener = http:getDefaultListener();
+listener http:Listener httpDefaultListener = new (9091);
 
-service /data on httpDefaultListener {
-    resource function get .() returns error|json {
+service /retrieve on httpDefaultListener {
+    resource function get .() returns error|record {|
+        *http:Ok;
+        json body;
+        record {|
+            (string|int|boolean|string[]|int[]|boolean[])...;
+        |} headers?;
+    |} {
         do {
-            record {string message;} var1 = check httpClient->get("/data");
-            string temp = string `${var1.message} World!`;
+            string mountPath = os:getEnv("CHOREO_CON50_MOUNT_PATH");
+            if mountPath == "" {
+                return error("CHOREO_CON50_MOUNT_PATH environment variable is not set");
+            }
+            string filePath = mountPath + "/message.txt";
+            string message = check io:fileReadString(filePath);
             return {
-                body: {message: temp},
-                headers: {contentType: "application/json"}
+                body: {message: message},
+                headers: {
+                    "Content-Type": "application/json"
+                }
             };
         } on fail error err {
-            // handle error
             return error("unhandled error", err);
         }
     }
-
 }

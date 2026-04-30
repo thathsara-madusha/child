@@ -1,10 +1,10 @@
 schemaVersion: 1.2
 
 endpoints:
-  - name: greeter-sample
+  - name: mainchild
     service:
-      basePath: /data
-      port: 9090
+      basePath: /retrieve
+      port: 9091
     type: REST
     networkVisibilities: 
       - Public
@@ -12,6 +12,5 @@ endpoints:
 
 dependencies:
   connectionReferences:
-    - name: Con1
-      resourceRef: storage:Store1
-      
+    - name: Con50
+      resourceRef: storage:Store50
